@@ -1,10 +1,10 @@
-from json import load
 from pydantic import BaseModel, Field
 from langchain.tools import tool
 import requests
 import os
 from dotenv import load_dotenv
 import traceback
+from security import safe_requests
 
 load_dotenv()
 
@@ -30,7 +30,7 @@ def get_linkedin_profile_data(query_url: str) -> dict:
     }
 
     try:
-        response = requests.get(url, headers=headers, params=querystring)
+        response = safe_requests.get(url, headers=headers, params=querystring)
         response.raise_for_status()  # Raises HTTPError for bad responses (4xx or 5xx)
         profile_data = response.json()
 

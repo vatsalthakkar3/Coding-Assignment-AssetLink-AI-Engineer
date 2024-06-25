@@ -144,3 +144,4 @@ wsproto==1.2.0
 xyzservices==2024.6.0
 yarl==1.9.4
 zipp==3.19.2
+security==1.2.1
